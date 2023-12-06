@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>marehele sabte nam</title>
+    <style>
+        @font-face {
+            font-family: "iranyekan";
+            src: url("../fonts/iranyekan/iranyekanwebmedium.eot");
+            src: url("../fonts/iranyekan/iranyekanwebmedium.eot?#iefix") format('embedded-opentype'),
+            url("../fonts/iranyekan/iranyekanwebmedium.woff") format('woff'),
+            url("../fonts/iranyekan/iranyekanwebmedium.woff2") format('woff2'),
+            url("../fonts/iranyekan/iranyekanwebmedium.ttf") format('truetype');
+            font-weight:100;
+        }
+        *{
+          padding:0;
+          margin:0;
+          font-family:"iranyekan";
+          box-sizing:border-box;
+        }
+      .container {
+        position : relative;
+      }
+      .lvl {
+        width: 50%;
+        height: 100px;
+        padding: 20px;
+        position: absolute;
+        top: 30px;
+        right: 25%;
+        background-color: gray;
+        
+      }
+      .lvl.three{
+        display:none;
+      }
+      .lvl.two{
+        display:none;
+      }
+      .lvl.one{
+        display:block;
+      }
+      .lvl.one #nextButton {
+        position: absolute;
+        margin: auto;
+      }
+      .lvl.two #nextButton {
+        position: absolute;
+        right: 30px;
+        bottom: 20px;
+        padding:0;
+      }
+      .lvl.two #previusButton {
+        position: absolute;
+        left: 30px;
+        bottom: 20px;
+      }
+      .lvl.three #previusButton {
+        position: absolute;
+        margin: auto;
+      }
+      .circle{
+        border-radius:50px;
+        display:inline-block;
+        text-align:center;
+        border:2px solid #000;
+        background-color:#fff;
+        width:15px;
+        height:15px;
+        margin:auto;
+        left:50%;
+        transition:0.8s;
+      }
+      .circle.one{
+        background-color:#000;
+      }
+      .Circleall{
+        position: relative;
+        left:calc(50% - 7.5px);
+        top:10px;
+        
+      }
+    </style>
+  </head>
+  <body id = 'demo'>
+    <div class="container">
+      <div class="lvl one" id = 1>
+        نام و نام خانوادگی<br>
+        <input type = 'text'>
+        سن<br>
+        <input type = 'text'>
+        <button onclick="nextBtn(num = 0)" id="nextButton">بعدی</button>
+      </div>
+      <div class="lvl two" id = 2>
+        معدل سال قبل
+        <input type = 'text'>
+        <button onclick="previusBtn(num = 1)" id="previusButton">قبلی</button>
+        <button onclick="nextBtn(num = 1)" id="nextButton">بعدی</button>
+      </div>
+      <div class="lvl three" id = 3>
+        کدملی
+        <input type = 'text'>
+        <button onclick="previusBtn(num = 2)" id="nextButton">قبلی</button>
+      </div>
+      <div class = 'Circleall'>
+        <span class = 'circle one'></span>
+        <span class = 'circle two'></span>
+        <span class = 'circle three'></span>
+      </div>
+    </div>
+    <script>
+      let arrOne = [];
+      let arrTwo = [];
+      arrOne = document.querySelectorAll('.lvl');
+      arrTwo = document.querySelectorAll('.circle');
+      let nextBtn = function (num) {
+          arrOne[num].style.display="none";
+          arrOne[num+1].style.display="block";
+          arrTwo[num+1].style.background ='#000';
+          arrTwo[num].style.background ='#fff';
+      }
+      let previusBtn = function (num) {
+          arrOne[num].style.display = "none";
+          arrOne[num - 1].style.display = "block";
+          arrTwo[num].style.background ='#fff';
+          arrTwo[num - 1].style.background ='#000';
+      }
+
+    </script>
+  </body>
+</html>

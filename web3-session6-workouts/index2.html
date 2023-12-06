@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>module</title>
+    <style>
+        #module{
+            display:none;
+            position:absolute;
+            border-radius : 8px;
+            background-color:bisque;
+            width:25%;
+            height:90px;
+            right:37.5%;
+            transition:opacity 1s;
+            padding:10px;
+        }
+        #closeBtn{
+            position:absolute;
+            left:5px;
+            bottom:5px;
+        }
+    </style>
+</head>
+<body id = 'demo'>
+    <button onclick = 'openBtn()'>Open</button>
+    <div id = 'module'>
+        <span>Lorem ipsum dolor sit amet.</span>
+        <button onclick = 'closeBtn()' id = 'closeBtn'>Close</button>
+    </div>
+    <noscript>This webpage does not support js</noscript>
+    <script>
+        let closeBtn = function(){
+            document.getElementById('module').style.display = 'none';
+        }
+        let openBtn = function(){
+            document.getElementById('module').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

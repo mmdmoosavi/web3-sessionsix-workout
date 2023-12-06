@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset = 'UTF-8'>
+        <meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+        <title>slide bar</title>
+        <style>
+            *{
+                box-sizing:border-box; 
+                padding:0;
+                margin:0;
+                text-align:center;
+            }
+            #slideBar{
+                height : 100%;
+                width : 200px;
+                position :fixed;
+                right: -200px;
+                background-color : orangered;
+                transition: 0.7s;
+                background:linear-gradient(darkred,red);
+            }
+            #openBtn{
+                position:absolute;
+                top:10px;
+                left:10px;
+                size:100px;
+            }
+            #closeBtn{
+                position:absolute;
+                top:10px;
+                left:10px;
+                size:100px;
+            }
+        </style>
+    </head>
+    <body id = 'demo'>
+        <button onclick = 'openBtn()' id = 'openBtn'>Click to open</button>
+        <span id = 'slideBar'>
+            <button onclick = 'closeBtn()' id = 'closeBtn'>Close slide bar</button>
+        </span>
+        <noscript>This webpage does not support js</noscript>
+        <script>
+            let closeBtn = function(){
+                document.getElementById('slideBar').style.right = '-200px';
+            }
+            let openBtn = function(){
+                document.getElementById('slideBar').style.right = 0;
+            }
+        </script>
+    </body>
+</html>
