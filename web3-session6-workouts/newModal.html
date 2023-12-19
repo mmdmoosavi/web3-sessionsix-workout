@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset = 'UTF-8'>
+        <meta name = 'viewport' content = 'width = device-width , initial-scale = 1.0'>
+        <style>
+            *{
+                box-sizing:border-box;
+                padding:0;
+                margin:0;
+            }
+            #modal{
+                position:relative;
+                top:50px;
+                left:37.5%;
+                box-shadow: #979494 19px 19px 20px 3px;
+                width:25%;
+                height:200px;
+                background-color:gray;
+                transition:all 0.5s;
+                border-radius:20px;
+                background:linear-gradient(to right , green , aquamarine);
+            }
+            #cls{
+                position:absolute;
+                right:10px;
+                bottom:10px;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                padding:8px;
+                border-radius:10px;
+                background:linear-gradient(to right , green , aquamarine);
+                border:aquamarine solid 1px;
+                color:rgb(246, 172, 82);
+            }
+            #saveCh{
+                position:absolute;
+                right:70px;
+                bottom:10px;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                padding:8px;
+                border-radius:10px;
+                border:aquamarine solid 1px;
+                background:linear-gradient(to right , green , aquamarine);
+                color:rgb(246, 172, 82);
+            }
+            #openMdl{
+                position:fixed;
+                top:30px;
+                left:40px;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                padding:8px;
+                border-radius:10px;
+                border:aquamarine solid 1px;
+                background:linear-gradient(to right , green , aquamarine);
+                color:rgb(246, 172, 82);
+            }
+            body p{
+                position:absolute;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                padding:20px;
+                color:rgb(246, 172, 82);
+            }
+        </style>
+    </head>
+    <body>
+        <button id = 'openMdl' onclick = 'openMdl()'>Open modal</button>
+        <div id = 'modal'>
+            <p>Enter new informations to change or press the close button to close the modal please 😘😘😘</p>
+            <button id = 'saveCh' onclick = 'saveChanges()'>Save Changes</button>
+            <button id = 'cls' onclick = 'cls()'>Close</button>
+        </div>
+        <noscript>This webpage does not support js</noscript>
+        <script>
+           let mdlPosition = document.getElementById('modal').style;
+           document.getElementsByTagName('body')[0].style.background = 'aquamarine';
+           let openMdl = ()=>{
+            mdlPosition.top = '50px'; 
+           }
+           let saveChanges = ()=>{
+            alert('informations has changed.');
+            mdlPosition.top = '-250px';
+           }
+           let cls = ()=>{
+            mdlPosition.top = '-250px';
+           }
+        </script>
+    </body>
+</html>
