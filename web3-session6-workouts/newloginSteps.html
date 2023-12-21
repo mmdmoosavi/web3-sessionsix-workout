@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>new login steps</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width = device-width , initial-scale = 1.0"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      body {
+        display: relative;
+        background:rgb(228 170 62);
+      }
+      .step {
+        position: absolute;
+        top: 50px;
+        left: 25%;
+        opacity: 0;
+        width: 50%;
+        height: 500px;
+        background: linear-gradient(orange, rgb(241, 186, 84));
+        color: rgb(137, 87, 26);
+        font-size: 30px;
+        text-align: left;
+        direction: ltr;
+        box-shadow:20px 1px 20px 0px;
+        border-radius: 20px;
+        transition: 0.5s;
+      }
+      .step.One {
+        opacity: 1;
+        z-index: 1;
+      }
+      .step .container {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+      }
+      .step .container .inputed input {
+        display: inline-block;
+        width: 300px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: gold;
+        border: gold 2px solid;
+      }
+      .step .container .inputed {
+        padding: 20px;
+      }
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 50px;
+      }
+      #lastBtn,
+      #nextBtn {
+        display: inline-block;
+        width: 15%;
+        border-radius: 30px;
+        background: linear-gradient(to top left, orange, yellow);
+        padding: 10px;
+      }
+      #nextBtnstOne {
+        position: absolute;
+        display: inline-block;
+        width: 14%;
+        border-radius: 30px;
+        background: linear-gradient(to top left, orange, yellow);
+        padding: 10px;
+        border:#000 2px solid;
+        right: 30px;
+        bottom: 50px;
+      }
+      .circles {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 50%;
+        margin: 15px auto;
+        text-align: center;
+        direction: ltr;
+      }
+      .circles .circle {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border: gold 1px solid;
+        border-radius: 50px;
+        background-color: gold;
+        color: white;
+        box-shadow:#504141a3 7px 3px 18px 0px;
+        transition:0.8s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circles">
+      <span class="circle one"><p>1</p></span>
+      <span class="circle two"><p>2</p></span>
+      <span class="circle three"><p>3</p></span>
+    </div>
+    <div class="step One" id="stepOne">
+      <div class="container">
+        <span class="inputed one" id="fname">
+          <p>Enter your first name : <input type="text" class="input" /></p>
+        </span>
+        <span class="inputed two" id="lname">
+          <p>Enter your last name : <input type="text" class="input" /></p>
+        </span>
+        <span class="inputed three" id="fthname">
+          <p>Enter your father's name : <input type="text" class="input" /></p>
+        </span>
+        <span class="inputed four" id="city">
+          <p>Enter your city : <input type="text" class="input" /></p>
+        </span>
+        <div class="buttons">
+          <button id="nextBtnstOne" onclick="nxtStep()">next</button>
+        </div>
+      </div>
+    </div>
+    <div class="step Two" id="stepTwo">
+      <div class="container two">
+        <span class="inputed one second" id="idNumber">
+          <p>Enter your id : <input type="number" class="input" /></p>
+        </span>
+        <span class="inputed two second" id="average">
+          <p>Enter your last average : <input type="number" class="input" /></p>
+        </span>
+        <span class="inputed three second" id="eduLong">
+          <p>
+            How long did you educated : <input type="number" class="input" />
+          </p>
+        </span>
+        <span class="inputed four second" id="dcScore">
+          <p>
+            Enter your decipline score : <input type="number" class="input" />
+          </p>
+        </span>
+        <div class="buttons">
+          <button id="lastBtn" onclick="lastStep()">last</button>
+          <button id="nextBtn" onclick="nxtStep()">next</button>
+        </div>
+      </div>
+    </div>
+    <div class="step Three" id="stepThree">
+      <div class="container three">
+        <span class="inputed one third" id="image">
+          <p>Upload your image : <input type="file" class="input" /></p>
+        </span>
+        <span class="inputed two third" id="lastEduDoc">
+          <p>
+            Upload your last educational document :
+            <input type="file" class="input" />
+          </p>
+        </span>
+        <span class="inputed three third" id="homeNumber">
+          <p>
+            Enter your home telephone number :
+            <input type="number" class="input" />
+          </p>
+        </span>
+        <span class="inputed four third" id="homeAddress">
+          <p>Enter your Home address : <input type="text" class="input" /></p>
+        </span>
+        <div class="buttons">
+          <button id="lastBtn" onclick="lastStep()">last</button>
+        </div>
+      </div>
+    </div>
+    <noscript>This webpage does not support js</noscript>
+    <script>
+      let i = 0;
+      let stepDisplay = document.getElementsByClassName("step");
+      let stepCircles = document.getElementsByClassName("circle");
+      let complete = document.getElementsByClassName("input");
+
+      let circleColor = () => {
+        if (i == 0) {
+          let counter = 0;
+          for (let j = 0; j < 4; j++) {
+            if (complete[j].value != '') counter++;
+          }
+            if(counter == 4){stepCircles[i].style.background = "green";console.log(counter);}
+            else{ stepCircles[i].style.background = "tomato";console.log(counter)}
+        
+        } else if (i == 1) {
+          let counter = 0;
+          for (let j = 4; j < 8; j++) {
+            if (complete[j].value != '') counter++;
+          }
+            if(counter == 4){stepCircles[i].style.background = "green";console.log(counter);}
+            else stepCircles[i].style.background = "tomato";
+        
+        } else if (i == 2) {
+          let counter = 0;
+          for (let j = 8; j < 12; j++) {
+            if (complete[j].value != '') counter++;
+          }
+            if(counter == 4){stepCircles[i].style.background = "green";console.log(counter);}
+            else stepCircles[i].style.background = "tomato";
+        }
+      }
+      let nxtStep = () => {
+        circleColor();
+        stepDisplay[i].style.opacity = "0";
+        stepDisplay[i].style.zIndex = "0";
+        i++;
+        stepDisplay[i].style.opacity = "1";
+        stepDisplay[i].style.zIndex = "1";
+      }
+      let lastStep = () => {
+        circleColor();
+        stepDisplay[i].style.opacity = "0";
+        stepDisplay[i].style.zIndex = "0";
+        i--;
+        circleColor();
+        stepDisplay[i].style.opacity = "1";
+        stepDisplay[i].style.zIndex = "1"; 
+      }
+    </script>
+  </body>
+</html>
