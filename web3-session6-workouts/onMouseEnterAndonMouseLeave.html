@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset = 'UTF-8'>
+        <meta name = 'viewport' content = 'width = device-width , initial-scale = 1.0'>
+        <title>Mouse hover and Mouse Enter</title>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                text-decoration:none;
+                list-style:none;
+            }
+            body{
+                display:flex;
+                flex-direction:row;
+                justify-content: center;
+                align-items: center;
+            }
+            #container{
+                display:flex;
+                flex-direction:row;  
+                
+            }
+            #onmouseenter,#onmouseleave{
+                display:flex;
+                padding:100px;
+                margin:100px;
+                flex-direction:column;
+                justify-content:space-evenly;
+                align-items:center;
+                background-color:gray;
+                width:300px;
+                height:300px;
+                border-radius:150px;
+                text-align:center;
+                transition:all 1s;
+                margin-top:30%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = 'container'>
+            <span id = 'onmouseenter' onmouseenter = 'onMouseEnter()' onmouseleave = 'reset()'></span>
+            <span id = 'onmouseleave' onmouseleave = 'onMouseLeave()' onmouseenter = 'reset()'></span>
+        </div>
+        <script>
+            let counter = 0;
+            let oME = document.getElementById('onmouseenter'),oML = document.getElementById('onmouseleave');
+            let reset = ()=>{
+                oME.innerHTML = '';
+                oME.style.background = 'gray';
+                oML.innerHTML = '';
+                oML.style.background = 'gray';
+            }
+            let onMouseEnter = ()=>{
+                counter++;    
+                oME.innerHTML = `<p style = 'margin:0;padding:0;'>${counter}</p><p style = 'margin:0;padding:0;'>On Mouse Enter</p>`;
+                oME.style.background = 'linear-gradient(red,orange)';
+            }
+            let onMouseLeave = ()=>{
+                counter++;
+                oML.innerHTML = `<p style = 'padding:0;margin:0;'>${counter}</p><p style = 'margin:0;padding:0;'>On Mouse Leave</p>`;
+                oML.style.background = 'purple';
+            }
+            
+        </script>
+    </body>
+</html>
