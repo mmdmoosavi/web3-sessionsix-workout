@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #Error{
+            display:none;
+            color:red;
+        }
+        #info{
+            display:none;
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <input type = 'text' onkeyup='eventHandler()' id='fname'><br>
+    <span id = 'Error'>You should enter atleast 3 characters.</span>
+    <span id = 'info'>You entered more than 3 characters.</span>
+    <script>
+        function eventHandler() {
+            if(document.getElementById('fname').value.length <= 3){
+                document.querySelector('#Error').style.display = 'inline';
+                document.querySelector('#info').style.display = 'none';
+            }
+            else{
+                document.querySelector('#Error').style.display = 'none';
+                document.querySelector('#info').style.display = 'inline';
+            }
+        }
+    </script>
+</body>
+</html>
