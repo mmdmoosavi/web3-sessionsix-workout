@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Stds Name</title>
+    
 </head>
 <body>
     <span><p>Enter your name : </p><input id = 'name' type = 'text'></span>
@@ -17,7 +18,7 @@
         function showUsers() { 
             document.getElementById('demo').innerHTML = '';
             for(let i = 0 ; i < info.length ; i++){ 
-                document.getElementById('demo').innerHTML += `<li>${info[i].fname} - ${info[i].age}</li>`;
+                document.getElementById('demo').innerHTML += `<li onclick = 'deleted(this)'>${info[i].fname} - ${info[i].age}<button onclick = 'deleted(this)'>X</button></li>`;
             }   
         }
         let addToUsers = ()=>{
@@ -33,6 +34,11 @@
           }
           showUsers();
         }
+        let deleted = (element)=>{
+          info.splice(element , 1);
+          element.style.display = 'none';
+        }
+        console.log(info);
     </script>
 </body>
 </html>
