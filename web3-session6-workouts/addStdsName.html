@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span><p>Enter your name : </p><input id = 'name' type = 'text'></span>
+    <span><p>Enter your age : </p><input id = 'age' type = 'number'></span>
+    <button onclick = 'addToUsers()'>show users</button>
+    <ul id = 'demo'>
+    </ul>
+    <script>
+        let info = [{ fname : 'amir' , age : 22} , { fname : 'zahra' , age : 20}];
+        showUsers();
+        function showUsers() { 
+            document.getElementById('demo').innerHTML = '';
+            for(let i = 0 ; i < info.length ; i++){ 
+                document.getElementById('demo').innerHTML += `<li>${info[i].fname} - ${info[i].age}</li>`;
+            }   
+        }
+        let addToUsers = ()=>{
+          let fname = document.getElementById('name').value;
+          let age = Number(document.getElementById('age').value);
+          document.getElementById('name').value = '';
+          document.getElementById('age').value = '';
+          if(fname.length >= 3) {
+            let obj = { fname : fname , age : age};
+            info.push(obj);
+          } else {
+            alert('Your name should be more than 3 characters');
+          }
+          showUsers();
+        }
+    </script>
+</body>
+</html>
